@@ -1,0 +1,1866 @@
+{
+    "header" : {
+        "file_version" : 180,
+        "format_version" : 1,
+        "library_version" : 1
+    },
+    "profiles" : {
+        "ColorCorrection" : {
+            "defaults" : [
+                {
+                    "Default" : [
+                        [
+                            "CC_Tags",
+                            ""
+                        ]
+                    ]
+                }
+            ],
+            "selection" : [
+                
+            ],
+            "overrides" : [
+                
+            ],
+            "priority" : [
+                
+            ]
+        },
+        "CPU" : {
+            "defaults" : [
+                {
+                    "Default" : [
+                        [
+                            "useSimplifiedCarCollisions",
+                            false,
+                            "Car collisions are CPU expensive. Use simplified ShapeDefs for collision detecti",
+                            "[;]"
+                        ],
+                        [
+                            "useAICarSounds",
+                            true,
+                            "Controls the car sounds for AI. Pretty expensive on CPU",
+                            "[;]"
+                        ],
+                        [
+                            "useQualityPhysics",
+                            true,
+                            "Controls the number of simulation steps for physics.",
+                            "[;]"
+                        ],
+                        [
+                            "useNetworkWakeupThread",
+                            true,
+                            "use network wake up thread",
+                            "[;]"
+                        ],
+                        [
+                            "maxPlayersWhenHosting",
+                            16,
+                            "how many players to allow in games hested by this device",
+                            "[2;24]"
+                        ],
+                        [
+                            "maxTakedownPlayersWhenHosting",
+                            16,
+                            "Don't use <4.how many players takedown players to allow when hosting on this dev",
+                            "[4;24]"
+                        ],
+                        [
+                            "allowOnlineMP",
+                            true,
+                            "activates online MP",
+                            "[;]"
+                        ],
+                        [
+                            "prewarmTextureStreaming",
+                            true,
+                            "It will reduce loading time but will generate texture popup at race start",
+                            "[;]"
+                        ],
+                        [
+                            "deviceSoundLevel",
+                            "MEDIUM",
+                            "current device level configuration that using to filter sound events based on de",
+                            "[;]"
+                        ],
+                        [
+                            "fixDecalPhoneModelList",
+                            "None",
+                            "Device name",
+                            "[;]"
+                        ]
+                    ]
+                }
+            ],
+            "selection" : [
+                {
+                    "LOWEST_CPU" : [
+                        [
+                            [
+                                "CORES<=2"
+                            ],
+                            [
+                                "CPUFMAX<=1200000"
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "LOW_CPU" : [
+                        [
+                            [
+                                "CORES=2"
+                            ],
+                            [
+                                "CPUFMAX>1200000"
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "MEDIUM_CPU" : [
+                        [
+                            [
+                                "CORES<=4"
+                            ],
+                            [
+                                "CPUFMAX<=2799000"
+                            ]
+                        ],
+                        [
+                            [
+                                "CORES>4"
+                            ],
+                            [
+                                "CORES<8"
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "HIGH_CPU" : [
+                        [
+                            [
+                                "CORES=4"
+                            ],
+                            [
+                                "CPUFMAX>2799000"
+                            ]
+                        ],
+                        [
+                            [
+                                "CORES>=8"
+                            ]
+                        ]
+                    ]
+                }
+            ],
+            "overrides" : {
+                "HIGH_CPU" : {
+                    "fixDecalPhoneModelList" : ";Nexus+6;SM-G930V;LG-H870;"
+                },
+                "LOW_CPU" : {
+                    "useQualityPhysics" : false,
+                    "useNetworkWakeupThread" : false,
+                    "deviceSoundLevel" : "LOW",
+                    "fixDecalPhoneModelList" : ";Nexus+6;SM-G930V;LG-H870;"
+                },
+                "LOWEST_CPU" : {
+                    "useSimplifiedCarCollisions" : true,
+                    "useAICarSounds" : false,
+                    "useQualityPhysics" : false,
+                    "useNetworkWakeupThread" : false,
+                    "deviceSoundLevel" : "LOW",
+                    "fixDecalPhoneModelList" : ";Nexus+6;SM-G930V;LG-H870;"
+                },
+                "MEDIUM_CPU" : {
+                    "useQualityPhysics" : false,
+                    "fixDecalPhoneModelList" : ";Nexus+6;SM-G930V;LG-H870;"
+                }
+            },
+            "priority" : [
+                
+            ]
+        },
+        "GPU" : {
+            "defaults" : [
+                {
+                    "Default" : [
+                        [
+                            "startTextureLOD",
+                            0,
+                            "Defined the top quality of the textures. 0 means max quality, 1 means half, 2 means quarter",
+                            "[0;2]"
+                        ],
+                        [
+                            "defaultTextureFiltering",
+                            "BILINEAR",
+                            "Defines the default texture filter quality. NEAREST < BILINEAR < TRILINEAR",
+                            "[;]"
+                        ],
+                        [
+                            "roadTextureAnisotropy",
+                            4,
+                            "Controls the quality of the road diffuse texture by using anisotropy. It's very expensive on GPU",
+                            "[0;16]"
+                        ],
+                        [
+                            "carTextureAnisotropy",
+                            4,
+                            "Controls the quality of the car textures by using anisotropy. It's very expensive on GPU",
+                            "[0;16]"
+                        ],
+                        [
+                            "useFog",
+                            true,
+                            "Fog is not so expensive. Disable this last",
+                            "[;]"
+                        ],
+                        [
+                            "useShadows",
+                            true,
+                            "Shadows are VERY expensive on the GPU",
+                            "[;]"
+                        ],
+                        [
+                            "sortSolidsFrontToBack",
+                            true,
+                            "By default, solids are sorted by shader. This is good for PowerVR and other TBDR architectures",
+                            "[;]"
+                        ],
+                        [
+                            "useDof",
+                            true,
+                            "Very GPU expensive",
+                            "[;]"
+                        ],
+                        [
+                            "useIsoBlur",
+                            true,
+                            "useIsoBlur",
+                            "[;]"
+                        ],
+                        [
+                            "fullScreenBlurQuality",
+                            "HIGH",
+                            "Use full screen blur quality. LOW < HIGH",
+                            "[;]"
+                        ],
+                        [
+                            "postFX",
+                            true,
+                            "Enable all post processing effects",
+                            "[;]"
+                        ],
+                        [
+                            "useCheapCustomPFX",
+                            false,
+                            "When postfx is enabled, this indicates we need to use the cheapest posftx",
+                            "[;]"
+                        ],
+                        [
+                            "useMotionBlur",
+                            true,
+                            "Use Motion Blur",
+                            "[;]"
+                        ],
+                        [
+                            "useMotionBlurCarFilter",
+                            true,
+                            "Filter out the cars when using motion blur. This is doing a fullscreen quad with multiply blending. If you disable this the motion blur will affect the cars as well",
+                            "[;]"
+                        ],
+                        [
+                            "allowAutoOrientInActionPhase",
+                            true,
+                            "allow auto orient in action phase",
+                            "[;]"
+                        ],
+                        [
+                            "surfaceScale",
+                            1.0,
+                            "Custom resolution for window surface (1.0=100%; 0.5=50%)",
+                            "[0;1]"
+                        ],
+                        [
+                            "fboScale",
+                            1.0,
+                            "Frame buffer object scale (all except UI; for 3D scene)",
+                            "[0;1]"
+                        ],
+                        [
+                            "downsampleScale",
+                            0.0,
+                            "Custom resolution for pp effects (1.0=100%; 0.5=50%)",
+                            "[0;1]"
+                        ],
+                        [
+                            "useAAInGameplay",
+                            false,
+                            "Use antialiasing during gameplay. This is VERY expensive on the GPU",
+                            "[;]"
+                        ],
+                        [
+                            "useAAInMenu",
+                            false,
+                            "Use Antialiasing in the garage. This is VERY expensive on the GPU",
+                            "[;]"
+                        ],
+                        [
+                            "useRoadSpecular",
+                            true,
+                            "Activates the specular on the road. Pretty GPU expensive",
+                            "[;]"
+                        ],
+                        [
+                            "useParaboloidReflection",
+                            true,
+                            "Activates the reflection ON the car. GPU expensive",
+                            "[;]"
+                        ],
+                        [
+                            "useLightShaft",
+                            false,
+                            "Activates the light shaft effect. GPU expensive",
+                            "[;]"
+                        ],
+                        [
+                            "useMRT",
+                            false,
+                            "use MRT to generate additional data (linearized depth texture, etc)",
+                            "[;]"
+                        ],
+                        [
+                            "useSSAO",
+                            false,
+                            "Activates the SSAO effect. GPU expensive. Requires zbuffer reads",
+                            "[;]"
+                        ],
+                        [
+                            "useStaticParaboloidReflection",
+                            false,
+                            "static reflection .. we dint render anything the texture is already computed ",
+                            "[;]"
+                        ],
+                        [
+                            "useRoadReflection",
+                            true,
+                            "Activates the reflection of the car on the road. GPU expensive",
+                            "[;]"
+                        ],
+                        [
+                            "useQualityRoadReflection",
+                            true,
+                            "Needs useroadReflection to work; GPU expensive",
+                            "[;]"
+                        ],
+                        [
+                            "useCarSpecular",
+                            true,
+                            "Activates the specular on the car paint. GPU expensive",
+                            "[;]"
+                        ],
+                        [
+                            "useCarQualityLighting",
+                            true,
+                            "Activates the high quality car lighting. GPU expensive",
+                            "[;]"
+                        ],
+                        [
+                            "useCarDirt",
+                            "CAR_DIRT_NORMAL",
+                            "CAR_DIRT_NONE < CAR_DIRT_1_LAYER < CAR_DIRT_NORMAL < CAR_DIRT_HIGH_END < CAR_DIRT_EXTRA_MESH",
+                            "[;]"
+                        ],
+                        [
+                            "cutoffDistanceOverride",
+                            0.0,
+                            "Leave this to 0 to have the default cutoff distance configured by designers. This will give optimal visual quality. You can override it to eliminate some draw calls and polygons. The skybox automatically adapts to this distance so no need to remodel it. A minimum value of 500 should be used as below this - errors are very visible",
+                            "[0;5000]"
+                        ],
+                        [
+                            "useBatching",
+                            true,
+                            "Batch draw calls mode (used to reduce draw calls, it seems not to work correctly in some androids)",
+                            "[;]"
+                        ],
+                        [
+                            "useHighQualityCars",
+                            true,
+                            "If true, high-poly cars are used + car destruction. If false, low-poly, low-drawcalls and no car distruction",
+                            "[;]"
+                        ],
+                        [
+                            "startAICarLod",
+                            "LOD_1",
+                            "Specifies minimum geometry Lod for car AIs (low-poly, low-drawcalls). ALL>1>2>3>4>5",
+                            "[;]"
+                        ],
+                        [
+                            "dropAICarLodWhenManyCarsOnScreen",
+                            false,
+                            "When many cars on screen, drop AI car lod by 1",
+                            "[;]"
+                        ],
+                        [
+                            "useTextureStreaming",
+                            true,
+                            "Enable texture streaming",
+                            "[;]"
+                        ],
+                        [
+                            "useVertexFresnel",
+                            false,
+                            "Calculates fresnel on vertex shader rather then on pixel shader",
+                            "[;]"
+                        ],
+                        [
+                            "useSkidMarks",
+                            true,
+                            "If false, the tire skid marks are disabled. This uses a bit of CPU and GPU",
+                            "[;]"
+                        ],
+                        [
+                            "useLensflare",
+                            true,
+                            "Enables the lens flares. Uses some fillrate and a bit of CPU for the visibility ray casts",
+                            "[;]"
+                        ],
+                        [
+                            "useAnamorphicGlows",
+                            true,
+                            "Enabled the car light glows. They use some fillrate and a bit of CPU for the raycasts",
+                            "[;]"
+                        ],
+                        [
+                            "useCheapColorCorrection",
+                            false,
+                            "This activates a very cheap (and no so good looking) color correction that is embedded inside all shaders",
+                            "[;]"
+                        ],
+                        [
+                            "uiTextureQuality",
+                            0,
+                            "This is used ONLY for sprites that in GIN have the Mips To Generate > 1. (0 for high quality textures; 1 for half textures)",
+                            "[0;1]"
+                        ],
+                        [
+                            "useGlassCrackPFX",
+                            true,
+                            "Activates glass crack postfx (GPU expensive)",
+                            "[;]"
+                        ],
+                        [
+                            "useOilStainEffect",
+                            false,
+                            "Displays oil stains during takedowns and wrecks",
+                            "[;]"
+                        ],
+                        [
+                            "enableCaustics",
+                            true,
+                            "Enable shader caustics calculations (expensive for some devices). This flag was added for DUBAI Underwater section.",
+                            "[;]"
+                        ],
+                        [
+                            "useHighQualityPuddles",
+                            true,
+                            "useHighQualityPuddles",
+                            "[;]"
+                        ],
+                        [
+                            "useHighQualityRiver",
+                            true,
+                            "useHighQualityRiver",
+                            "[;]"
+                        ],
+                        [
+                            "isLowEndDevice",
+                            false,
+                            "isLowEndDevice",
+                            "[;]"
+                        ],
+                        [
+                            "ExtraLowEndDeviceTokens",
+                            "-",
+                            "Specific low end devices flag for per level",
+                            "[;]"
+                        ],
+                        [
+                            "useVertexNdis",
+                            true,
+                            "useVertexNdis",
+                            "[;]"
+                        ],
+                        [
+                            "useVolumeLights",
+                            false,
+                            "Enabled the car volume lights",
+                            "[;]"
+                        ],
+                        [
+                            "useToneMapping",
+                            false,
+                            "useToneMapping",
+                            "[;]"
+                        ],
+                        [
+                            "useHeatRefraction",
+                            false,
+                            "Enable heat refraction effect",
+                            "[;]"
+                        ],
+                        [
+                            "useWaterSplashFX",
+                            false,
+                            "Enable water splash postfx",
+                            "[;]"
+                        ],
+                        [
+                            "useWeatherEffects",
+                            false,
+                            "Enable weather effects",
+                            "[;]"
+                        ],
+                        [
+                            "usePerfectNitroParticles",
+                            false,
+                            "Use a custom particle effect when the car performs perfect nitro",
+                            "[;]"
+                        ],
+                        [
+                            "useCustomPFX",
+                            true,
+                            "Use custom postFX",
+                            "[;]"
+                        ],
+                        [
+                            "maxCarParticlesAllowed",
+                            7,
+                            "Indicates maximum number of cars that can generate particles at the same time",
+                            "[0;24]"
+                        ],
+                        [
+                            "useHighWater",
+                            true,
+                            "useHighWater",
+                            "[;]"
+                        ],
+                        [
+                            "m_useTireGrooves",
+                            true,
+                            "Use grooves",
+                            "[;]"
+                        ],
+                        [
+                            "useBreakables",
+                            true,
+                            "Breakables are CPU expensive. They add drawcalls and physics",
+                            "[;]"
+                        ],
+                        [
+                            "maxNumberOfBreakablesDynamicBones",
+                            10,
+                            "maxNumberOfBreakablesDynamicBones",
+                            "[0;100]"
+                        ],
+                        [
+                            "useTrafficCars",
+                            true,
+                            "Traffic cars are CPU expensive. They add drawcalls and physics",
+                            "[;]"
+                        ],
+                        [
+                            "useAICarParticles",
+                            true,
+                            "Controls the car particles for AI. Very expensive on CPU and GPU",
+                            "[;]"
+                        ],
+                        [
+                            "particlesMaxUpdateDistance",
+                            1000000.0,
+                            "Particles max update distance CPU + GPU",
+                            "[0;5000000]"
+                        ],
+                        [
+                            "particlesMaxRenderDistance",
+                            1000000.0,
+                            "Particles max render distance",
+                            "[0;5000000]"
+                        ],
+                        [
+                            "useOffscreenParticles",
+                            false,
+                            "useOffscreenParticles",
+                            "[;]"
+                        ],
+                        [
+                            "offscreenParticlesScaleFactor",
+                            4,
+                            "Offscreen particles scale factor",
+                            "[1;100]"
+                        ],
+                        [
+                            "particlesQuality",
+                            "ORIGINAL",
+                            "VERY_LOW < LOW < MEDIUM < CUSTOM < ORIGINAL; Quality of particles ",
+                            "[;]"
+                        ],
+                        [
+                            "maxParticlesEmittersFullLod",
+                            200.0,
+                            "Max emitters with full lod (overall)",
+                            "[-300;300]"
+                        ],
+                        [
+                            "maxParticlesEmitters",
+                            300,
+                            "max emitters (overall)",
+                            "[0;1000]"
+                        ],
+                        [
+                            "useSSEEffects",
+                            false,
+                            "Enable\/disable Space Screen Effects",
+                            "[;]"
+                        ],
+                        [
+                            "useLowEndShaders",
+                            false,
+                            "Use low-end shaders?",
+                            "[;]"
+                        ],
+                        [
+                            "useUIDistortion",
+                            true,
+                            "UI Distortion effect",
+                            "[;]"
+                        ],
+                        [
+                            "useVertexTexturefetch",
+                            false,
+                            "Enable it only on devices that support Vertex Texture Fetch and does not support",
+                            "[;]"
+                        ],
+                        [
+                            "useCarSunReflection",
+                            true,
+                            "useCarSunReflection",
+                            "[;]"
+                        ],
+                        [
+                            "maxCarImpactParticlesCount",
+                            2,
+                            "Maximum number of impact particle emitters at the same time",
+                            "[0;10]"
+                        ],
+                        [
+                            "maxCarImpactParticlesDuration",
+                            100,
+                            "Max time before replacing this ps",
+                            "[0;1000]"
+                        ],
+                        [
+                            "useCubeMapReflections",
+                            true,
+                            "Used in MainMenu shader static_LM_Cubemap",
+                            "[;]"
+                        ],
+                        [
+                            "maxNumberOfLights",
+                            1,
+                            "max number of lights",
+                            "[0;10]"
+                        ],
+                        [
+                            "surfaceScaleUHD",
+                            1.0,
+                            "nly for height>1150; custom resolution for window surface (1.0=100%; 0.5=50%)",
+                            "[0;1]"
+                        ],
+                        [
+                            "fboScaleUHD",
+                            1.0,
+                            "Only for Height>1150; frame buffer object scale (all except UI; for 3D scene)",
+                            "[0;1]"
+                        ],
+                        [
+                            "downsampleScaleUHD",
+                            1.0,
+                            "nly for Height>1150; custom resolution for pp effects (1.0=100%; 0.5=50%)",
+                            "[0;1]"
+                        ],
+                        [
+                            "useCarFog",
+                            true,
+                            "Car fog is not so expensive. Disable this last",
+                            "[;]"
+                        ],
+                        [
+                            "carDecals_use",
+                            true,
+                            "Indicates car decal parameters",
+                            "[;]"
+                        ],
+                        [
+                            "carDecals_textureBitsPerChannel",
+                            8,
+                            "4 or 8",
+                            "[4;8]"
+                        ],
+                        [
+                            "carDecals_carDecalsBrushSize",
+                            512,
+                            "Intermediate brush size",
+                            "[256;512]"
+                        ],
+                        [
+                            "carDecals_carDecalsDecalSize",
+                            1024,
+                            "decal size,if you change this resolution, check if mipIndices are valid",
+                            "[512;1024]"
+                        ],
+                        [
+                            "carDecals_highQualitySizeMultipler",
+                            2.0,
+                            "Multiplier to be applied to decalSize when we want high quality decals (menus)",
+                            "[1;2]"
+                        ],
+                        [
+                            "carDecals_maximumUnusedTextureCount",
+                            2,
+                            "Car decals generation by steps",
+                            "[0;2]"
+                        ],
+                        [
+                            "carDecals_lowMaxDecalCount",
+                            20,
+                            "indicates maximum number of low decals",
+                            "[5;21]"
+                        ],
+                        [
+                            "carDecals_medMaxDecalCount",
+                            2,
+                            "indicates maximum number of medium decals",
+                            "[0;2]"
+                        ],
+                        [
+                            "carDecals_highMaxDecalCount",
+                            2,
+                            "indicates maximum number of high decals",
+                            "[1;2]"
+                        ],
+                        [
+                            "maxTimeForDecalRenderingPerFrame",
+                            300,
+                            "Car decals generation by steps",
+                            "[100;300]"
+                        ],
+                        [
+                            "maxFpsLimitMenu",
+                            60,
+                            "Max fps for menu",
+                            "[30;60]"
+                        ],
+                        [
+                            "maxFpsLimitAction",
+                            60,
+                            "Max fps in ap",
+                            "[30;60]"
+                        ],
+                        [
+                            "useCustomCarLodLevel",
+                            0,
+                            "Specific lods when npc cars are far away (0 - disable, 1 - avoid drop to LOD4)",
+                            "[0;3]"
+                        ],
+                        [
+                            "distanceForLowestLOD",
+                            50,
+                            "lod_max will be used",
+                            "[0;70]"
+                        ],
+                        [
+                            "distanceForMediumLOD",
+                            30.0,
+                            "lod_2 will be used",
+                            "[0;100]"
+                        ],
+                        [
+                            "distanceForHighLOD",
+                            20.0,
+                            "lod_1 will be used",
+                            "[0;50]"
+                        ],
+                        [
+                            "distanceForCarParticles",
+                            50.0,
+                            "Skip car particles when car far away",
+                            "[0;1000]"
+                        ],
+                        [
+                            "use565rtt",
+                            false,
+                            "render targets in 16 bit colors instead of 32bit",
+                            "[;]"
+                        ],
+                        [
+                            "dropAICarRankOnScreen",
+                            1,
+                            "When many cars on screen, drop AI car lod by 1",
+                            "[1;4]"
+                        ],
+                        [
+                            "maxCarNitroParticlesAllowed",
+                            7,
+                            "Indicates maximum number of cars that can generate particles at the same time",
+                            "[0;7]"
+                        ],
+                        [
+                            "useRoadNormalMap",
+                            true,
+                            "Activates the normal map on the road. Pretty GPU expensive",
+                            "[;]"
+                        ],
+                        [
+                            "useRoadDecalNormalMap",
+                            true,
+                            "Activates the normal map on the road. Pretty GPU expensive",
+                            "[;]"
+                        ],
+                        [
+                            "maxFrameUpdates",
+                            5,
+                            "Skip frames update, only in single player mode",
+                            "[1;5]"
+                        ],
+                        [
+                            "useCheapShadows",
+                            false,
+                            "Enabling shadow mapping only for the objects rather near from cam",
+                            "[;]"
+                        ],
+                        [
+                            "useSpecificLodModel",
+                            false,
+                            "Specific lods when rendering some models as paraboloid reflection, road reflection",
+                            "[;]"
+                        ],
+                        [
+                            "useRoadDecal",
+                            true,
+                            "Activates the road decals. Pretty GPU expensive",
+                            "[;]"
+                        ],
+                        [
+                            "useCheapShadowsSplotch",
+                            false,
+                            "Enabling shadow splotch only for the car focused",
+                            "[;]"
+                        ],
+                        [
+                            "cutoffDistanceOverrideMenu",
+                            0.0,
+                            "Leave this to 0 to have the default cutoff distance configured by designers. This will give optimal visual quality. You can override it to eliminate some draw calls and polygons. The skybox automatically adapts to this distance so no need to remodel it. A minimum value of 500 should be used as below this - errors are very visible",
+                            "[0;5000]"
+                        ],
+                        [
+                            "maxNumberOfBreakableFragments",
+                            100,
+                            "Max total number of broken fragments",
+                            "[0;100]"
+                        ],
+                        [
+                            "decoRate",
+                            10,
+                            "used in deco to better tune what decos can be hidden based on the rate of the device",
+                            "[0;10]"
+                        ],
+                        [
+                            "psRate",
+                            10,
+                            "used in particle system entities to better tune what ps can be hidden based on the rate of the device",
+                            "[0;10]"
+                        ],
+                        [
+                            "alphaTextureLODOffset",
+                            0,
+                            "This defined the quality offset of the alpha textures",
+                            "[0;4]"
+                        ],
+                        [
+                            "cutoffDistanceforbreakables",
+                            0.0,
+                            "This defined the distance to render Breakables",
+                            "[0;5000]"
+                        ],
+                        [
+                            "useSimpleRoadTextureAnisotropy",
+                            false,
+                            "enable Anitrophy only for some specific shader and specific texture - diffuse for example",
+                            "[;]"
+                        ],
+                        [
+                            "useSimpleRoadReflection",
+                            false,
+                            "Only update Road Reflection RT when data changed",
+                            "[;]"
+                        ],
+                        [
+                            "useRoadReflectionMenuOnly",
+                            false,
+                            "activates the reflection of the car on the road only for menu. GPU expensive",
+                            "[;]"
+                        ],
+                        [
+                            "useSimpleMotionBlur",
+                            false,
+                            "Use postfx_radialblur_simple instead postfx_radialblur shader when car isn't at perfect nitro area",
+                            "[;]"
+                        ],
+                        [
+                            "useUIParticles",
+                            true,
+                            "control UI effects particles",
+                            "[;]"
+                        ],
+                        [
+                            "entityPsMaxUpdateDistanceOverride",
+                            0.0,
+                            "Entities particles max update distance",
+                            "[0;250000]"
+                        ],
+                        [
+                            "dropEffectsWhenManyCarsOnScreenRate",
+                            "NOTHING",
+                            "drop Effects When Many Cars OnScreen Rate",
+                            "[;]"
+                        ],
+                        [
+                            "numberOfCarAllowDropEffect",
+                            6,
+                            "Number of car allow drop effect",
+                            "[0;10]"
+                        ],
+                        [
+                            "updateCarSoundPeriod",
+                            0,
+                            "sound update frequency",
+                            "[0;200]"
+                        ],
+                        [
+                            "forcedSkidsGeoCpuAccess",
+                            false,
+                            "force skids geometry using client data instead of map_buffer",
+                            "[;]"
+                        ],
+                        [
+                            "useNitroParticles",
+                            true,
+                            "useNitroParticles",
+                            "[;]"
+                        ],
+                        [
+                            "m_lowMemoryGrooves",
+                            false,
+                            "Limit memory usage in GrooveMgr",
+                            "[;]"
+                        ],
+                        [
+                            "cutoffDistanceOverride_PHUKET_TRACK",
+                            0.0,
+                            "cutoffDistanceOverride for PHUKET_TRACK",
+                            "[0;5000]"
+                        ],
+                        [
+                            "cutoffDistanceOverride_EGYPT_TRACK",
+                            0.0,
+                            "cutoffDistanceOverride for EGYPT_TRACK",
+                            "[0;5000]"
+                        ],
+                        [
+                            "cutoffDistanceOverride_GOBI_TRACK",
+                            0.0,
+                            "cutoffDistanceOverride for GOBI_TRACK",
+                            "[0;5000]"
+                        ],
+                        [
+                            "cutoffDistanceOverride_SVALBARD_TRACK",
+                            0.0,
+                            "cutoffDistanceOverride for SVALBARD_TRACK",
+                            "[0;5000]"
+                        ],
+                        [
+                            "cutoffDistanceOverride_LONDON_TRACK",
+                            0.0,
+                            "cutoffDistanceOverride for LONDON_TRACK",
+                            "[0;5000]"
+                        ],
+                        [
+                            "useAgressiveBatching",
+                            false,
+                            "use Agressive Batching, is used when isLowEndDevice = true",
+                            "[;]"
+                        ],
+                        [
+                            "useOnlyOneSSEEffect",
+                            false,
+                            "ensure only 1 SSE effect will be shown at the same time",
+                            "[;]"
+                        ],
+                        [
+                            "minIntensitySSE",
+                            0.0001,
+                            "Just render sse effect when intensity > 0.2f",
+                            "[0.0001;1.0]"
+                        ],
+                        [
+                            "distanceForLowestLODOverride",
+                            0.0,
+                            "specific lods for specific levels",
+                            "[0;100]"
+                        ],
+                        [
+                            "distanceForMediumLODOverride",
+                            0.0,
+                            "Specific lods for specific levels",
+                            "[0;100]"
+                        ],
+                        [
+                            "distanceForHighLODOverride",
+                            0.0,
+                            "specific lods for specific levels",
+                            "[0;100]"
+                        ],
+                        [
+                            "decoRateOverride",
+                            10,
+                            "used in deco to better tune what decos can be hidden based on the rate of the device",
+                            "[0;10]"
+                        ],
+                        [
+                            "updateCarParticlesPeriod",
+                            0,
+                            "car particles update frequency",
+                            "[0;200]"
+                        ],
+                        [
+                            "useETCCompressionOnUI",
+                            false,
+                            "use ETC Compression On UI",
+                            "[;]"
+                        ],
+                        [
+                            "useDownsampledRenderBuffer",
+                            true,
+                            "false for low devices",
+                            "[;]"
+                        ]
+                    ]
+                }
+            ],
+            "selection" : [
+                {
+                    "GPU_3" : [
+                        [
+                            [
+                                "GPU$$Adreno (TM) 306"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 308"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 504"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 405"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 505"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 506"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 418"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 420"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 508"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 509"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 510"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-450"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-T604"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-T628"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-T720"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-T760"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-T830"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-T860"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-G51"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-G52"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$PowerVR GE8100"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$PowerVR GE8320"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$PowerVR Rogue G6200"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$PowerVR Rogue G6430"
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "GPU_4" : [
+                        [
+                            [
+                                "GPU$$Adreno (TM) 430"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 512"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 610"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 612"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 615"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 616"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 530"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 618"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 619"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-T880"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-G57"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-G71"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$PowerVR GM 9446"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$PowerVR 7XTP-MT4"
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "GPU_5" : [
+                        [
+                            [
+                                "GPU$$Adreno (TM) 540"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 620"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 630"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 640"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 650"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 725"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 730"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 740"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 750"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 850"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-G72"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-G76"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-G710"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-G715"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-G720"
+                            ]
+                        ],                        
+                        [
+                            [
+                                "GPU$$Xclipse"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Immortalis-G715"
+                            ]
+                        ],             
+                        [
+                            [
+                                "GPU$$Immortalis-G720"
+                            ]
+                        ],                                       
+                        [
+                            [
+                                "GPU$$Immortalis-G925"
+                            ]
+                        ]                       
+                    ]
+                },
+                {
+                    "GPU_Samsung_S21" : [
+                        [
+                            [
+                                "GPU$$Mali-G77"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Adreno (TM) 660"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-G78"
+                            ]
+                        ],
+                        [
+                            [
+                                "GPU$$Mali-G68"
+                            ]
+                        ]
+                    ]
+                }
+            ],
+            "overrides" : {
+                "GPU_3" : {
+                    "roadTextureAnisotropy" : 0,
+                    "carTextureAnisotropy" : 0,
+                    "sortSolidsFrontToBack" : false,
+                    "useDof" : false,
+                    "fullScreenBlurQuality" : "LOW",
+                    "useCheapCustomPFX" : true,
+                    "useMotionBlur" : false,
+                    "surfaceScale" : 0.75,
+                    "fboScale" : 0.75,
+                    "useRoadSpecular" : false,
+                    "useParaboloidReflection" : false,
+                    "useQualityRoadReflection" : false,
+                    "useCarSpecular" : false,
+                    "useCarQualityLighting" : false,
+                    "cutoffDistanceOverride" : 1000.0,
+                    "useHighQualityCars" : false,
+                    "dropAICarLodWhenManyCarsOnScreen" : true,
+                    "useLensflare" : false,
+                    "useGlassCrackPFX" : false,
+                    "useHighQualityPuddles" : false,
+                    "useHighQualityRiver" : false,
+                    "isLowEndDevice" : true,
+                    "ExtraLowEndDeviceTokens" : "LONDON_TRACK",
+                    "maxCarParticlesAllowed" : 4,
+                    "m_useTireGrooves" : false,
+                    "maxNumberOfBreakablesDynamicBones" : 5,
+                    "useAICarParticles" : false,
+                    "particlesQuality" : "CUSTOM",
+                    "maxParticlesEmittersFullLod" : 50.0,
+                    "maxParticlesEmitters" : 65,
+                    "useLowEndShaders" : true,
+                    "useUIDistortion" : false,
+                    "useVertexTexturefetch" : true,
+                    "useCarSunReflection" : false,
+                    "surfaceScaleUHD" : 0.75,
+                    "fboScaleUHD" : 0.75,
+                    "downsampleScaleUHD" : 0.0,
+                    "carDecals_highQualitySizeMultipler" : 1.0,
+                    "carDecals_lowMaxDecalCount" : 7,
+                    "carDecals_medMaxDecalCount" : 0,
+                    "carDecals_highMaxDecalCount" : 1,
+                    "maxFpsLimitMenu" : 60,
+                    "maxFpsLimitAction" : 60,
+                    "useCustomCarLodLevel" : 2,
+                    "distanceForLowestLOD" : 0,
+                    "distanceForMediumLOD" : 60.0,
+                    "distanceForHighLOD" : 30.0,
+                    "use565rtt" : true,
+                    "maxCarNitroParticlesAllowed" : 2,
+                    "useRoadDecalNormalMap" : false,
+                    "maxFrameUpdates" : 3,
+                    "useCheapShadows" : true,
+                    "useSpecificLodModel" : true,
+                    "useRoadDecal" : false,
+                    "useCheapShadowsSplotch" : true,
+                    "maxNumberOfBreakableFragments" : 10,
+                    "decoRate" : 1,
+                    "psRate" : 1,
+                    "cutoffDistanceforbreakables" : 300.0,
+                    "useSimpleRoadTextureAnisotropy" : true,
+                    "useUIParticles" : false,
+                    "entityPsMaxUpdateDistanceOverride" : 3000.0,
+                    "updateCarSoundPeriod" : 50,
+                    "forcedSkidsGeoCpuAccess" : true,
+                    "useNitroParticles" : false,
+                    "cutoffDistanceOverride_PHUKET_TRACK" : 3000.0,
+                    "cutoffDistanceOverride_GOBI_TRACK" : 1500.0,
+                    "cutoffDistanceOverride_SVALBARD_TRACK" : 1500.0,
+                    "cutoffDistanceOverride_LONDON_TRACK" : 1500.0,
+                    "useAgressiveBatching" : true,
+                    "distanceForLowestLODOverride" : 70.0,
+                    "distanceForMediumLODOverride" : 50.0,
+                    "distanceForHighLODOverride" : 20.0,
+                    "updateCarParticlesPeriod" : 50,
+                    "useDownsampledRenderBuffer" : false
+                },
+                "GPU_4" : {
+                    "roadTextureAnisotropy" : 2,
+                    "carTextureAnisotropy" : 2,
+                    "sortSolidsFrontToBack" : false,
+                    "surfaceScale" : 0.8,
+                    "fboScale" : 0.8,
+                    "useQualityRoadReflection" : false,
+                    "cutoffDistanceOverride" : 2500.0,
+                    "useHighQualityCars" : false,
+                    "dropAICarLodWhenManyCarsOnScreen" : true,
+                    "useOilStainEffect" : true,
+                    "ExtraLowEndDeviceTokens" : "LONDON_TRACK",
+                    "useWaterSplashFX" : true,
+                    "useWeatherEffects" : true,
+                    "usePerfectNitroParticles" : true,
+                    "maxCarParticlesAllowed" : 4,
+                    "m_useTireGrooves" : false,
+                    "maxNumberOfBreakablesDynamicBones" : 5,
+                    "particlesQuality" : "CUSTOM",
+                    "maxParticlesEmittersFullLod" : 50.0,
+                    "maxParticlesEmitters" : 65,
+                    "useSSEEffects" : true,
+                    "useUIDistortion" : false,
+                    "useCarSunReflection" : false,
+                    "surfaceScaleUHD" : 0.8,
+                    "fboScaleUHD" : 0.8,
+                    "downsampleScaleUHD" : 0.0,
+                    "carDecals_lowMaxDecalCount" : 7,
+                    "carDecals_medMaxDecalCount" : 0,
+                    "carDecals_highMaxDecalCount" : 1,
+                    "maxFpsLimitMenu" : 60,
+                    "maxFpsLimitAction" : 60,
+                    "useCustomCarLodLevel" : 2,
+                    "distanceForLowestLOD" : 0,
+                    "distanceForMediumLOD" : 60.0,
+                    "distanceForHighLOD" : 30.0,
+                    "maxCarNitroParticlesAllowed" : 2,
+                    "useCheapShadows" : true,
+                    "maxNumberOfBreakableFragments" : 10,
+                    "decoRate" : 2,
+                    "psRate" : 2,
+                    "cutoffDistanceforbreakables" : 300.0,
+                    "useSimpleRoadTextureAnisotropy" : true,
+                    "useSimpleRoadReflection" : true,
+                    "useSimpleMotionBlur" : true,
+                    "entityPsMaxUpdateDistanceOverride" : 5000.0,
+                    "updateCarSoundPeriod" : 50,
+                    "forcedSkidsGeoCpuAccess" : true,
+                    "cutoffDistanceOverride_PHUKET_TRACK" : 3000.0,
+                    "cutoffDistanceOverride_GOBI_TRACK" : 2000.0,
+                    "cutoffDistanceOverride_SVALBARD_TRACK" : 2000.0,
+                    "cutoffDistanceOverride_LONDON_TRACK" : 1000.0,
+                    "useAgressiveBatching" : true,
+                    "useOnlyOneSSEEffect" : true,
+                    "minIntensitySSE" : 0.2,
+                    "distanceForLowestLODOverride" : 70.0,
+                    "distanceForMediumLODOverride" : 50.0,
+                    "distanceForHighLODOverride" : 20.0,
+                    "decoRateOverride" : 1,
+                    "updateCarParticlesPeriod" : 50
+                },
+                "GPU_5" : {
+                    "sortSolidsFrontToBack" : false,
+                    "surfaceScale" : 0.9,
+                    "fboScale" : 0.9,
+                    "useLightShaft" : true,
+                    "useOilStainEffect" : true,
+                    "useHeatRefraction" : true,
+                    "useWaterSplashFX" : true,
+                    "useWeatherEffects" : true,
+                    "usePerfectNitroParticles" : true,
+                    "offscreenParticlesScaleFactor" : 2,
+                    "useSSEEffects" : true,
+                    "useCarSunReflection" : false,
+                    "surfaceScaleUHD" : 0.9,
+                    "fboScaleUHD" : 0.9,
+                    "downsampleScaleUHD" : 0.0,
+                    "maxFpsLimitMenu" : 60,
+                    "maxFpsLimitAction" : 60,
+                    "distanceForLowestLOD" : 0,
+                    "distanceForMediumLOD" : 50.0,
+                    "distanceForHighLOD" : 30.0
+                },
+                "GPU_Samsung_S21" : {
+                    "sortSolidsFrontToBack" : false,
+                    "surfaceScale" : 0.9,
+                    "fboScale" : 0.9,
+                    "useLightShaft" : true,
+                    "useCarDirt" : "CAR_DIRT_NONE",
+                    "useOilStainEffect" : true,
+                    "useHeatRefraction" : true,
+                    "useWaterSplashFX" : true,
+                    "useWeatherEffects" : true,
+                    "usePerfectNitroParticles" : true,
+                    "offscreenParticlesScaleFactor" : 2,
+                    "useSSEEffects" : true,
+                    "useCarSunReflection" : false,
+                    "surfaceScaleUHD" : 0.9,
+                    "fboScaleUHD" : 0.9,
+                    "downsampleScaleUHD" : 0.0,
+                    "maxFpsLimitMenu" : 60,
+                    "maxFpsLimitAction" : 60,
+                    "distanceForLowestLOD" : 0,
+                    "distanceForMediumLOD" : 50.0,
+                    "distanceForHighLOD" : 30.0
+                }
+            },
+            "priority" : {
+                "GPU_3" : [
+                    "GPU_4",
+                    ""
+                ],
+                "GPU_4" : [
+                    "GPU_5",
+                    "GPU_3"
+                ],
+                "GPU_5" : [
+                    "",
+                    "GPU_4"
+                ]
+            }
+        },
+        "MEM" : {
+            "defaults" : [
+                {
+                    "Default" : [
+                        [
+                            "textureBudgetMB",
+                            100,
+                            "texture budget for streaming in MegaBytes",
+                            "[10;1024]"
+                        ],
+                        [
+                            "freeMoreMemory",
+                            false,
+                            "will unload on memory warning. the 3Mb texture buffer. unused models\\\/geometry",
+                            "[;]"
+                        ],
+                        [
+                            "useCarWheelsSoundPreload",
+                            false,
+                            "Preload car wheels sound",
+                            "[;]"
+                        ],
+                        [
+                            "useDriftSoundPreload",
+                            false,
+                            "Preload Drift sound",
+                            "[;]"
+                        ],
+                        [
+                            "useTrafficSoundPreload",
+                            false,
+                            "Preload Traffic sound",
+                            "[;]"
+                        ],
+                        [
+                            "forcedDisablePrewarmInLoading",
+                            false,
+                            "Force disable Prewarm In Loading",
+                            "[;]"
+                        ],
+                        [
+                            "enableLimitTextureStreaming",
+                            false,
+                            "enable limit bandwith texture streaming",
+                            "[;]"
+                        ],
+                        [
+                            "preLoadAllGeometry",
+                            true,
+                            "PreLoad all geometry",
+                            "[;]"
+                        ],
+                        [
+                            "preLoadAllParticles",
+                            true,
+                            "Preload all particles",
+                            "[;]"
+                        ],
+                        [
+                            "forceOverrideStartTextureLOD",
+                            0,
+                            "Depend to startTextureLOD",
+                            "[0;5]"
+                        ],
+                        [
+                            "uiTexturesCustomMip",
+                            0,
+                            "defines custom mipmap indexes to load for specific textures",
+                            "[0;3]"
+                        ],
+                        [
+                            "uiTexturesCustomParam",
+                            0,
+                            "uiTexturesCustomParam",
+                            "[0;3]"
+                        ],
+                        [
+                            "carDecals_highQualitySizeMultiplerMem",
+                            2.0,
+                            "multiplier to be applied to decalSize when we want high quality decals (menus)",
+                            "[1;2]"
+                        ],
+                        [
+                            "isLowMemoryDeviceLevel",
+                            0,
+                            "low memory device toggle",
+                            "[0;3]"
+                        ],
+                        [
+                            "preLoadAllParticlesMenu",
+                            true,
+                            "preLoad All Particles when go to main menu",
+                            "[;]"
+                        ],
+                        [
+                            "reloadTextureOnResume",
+                            false,
+                            "reloadTextureOnResume",
+                            "[;]"
+                        ]
+                    ]
+                }
+            ],
+            "selection" : [
+                {
+                    "LOW_MEM" : [
+                        [
+                            [
+                                "MEM_T<=768"
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "MED_MEM" : [
+                        [
+                            [
+                                "MEM_T>768"
+                            ],
+                            [
+                                "MEM_T<1900"
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "HIGH_MEM" : [
+                        [
+                            [
+                                "MEM_T>=1900"
+                            ]
+                        ]
+                    ]
+                }
+            ],
+            "overrides" : {
+                "HIGH_MEM" : {
+                    "textureBudgetMB" : 300,
+                    "useCarWheelsSoundPreload" : true,
+                    "useDriftSoundPreload" : true,
+                    "useTrafficSoundPreload" : true,
+                    "preLoadAllParticlesMenu" : false,
+                    "reloadTextureOnResume" : true
+                },
+                "LOW_MEM" : {
+                    "forcedDisablePrewarmInLoading" : true,
+                    "preLoadAllParticles" : false,
+                    "uiTexturesCustomMip" : 1,
+                    "uiTexturesCustomParam" : 1,
+                    "carDecals_highQualitySizeMultiplerMem" : 1.0,
+                    "isLowMemoryDeviceLevel" : 2,
+                    "preLoadAllParticlesMenu" : false
+                },
+                "MED_MEM" : {
+                    "textureBudgetMB" : 150,
+                    "useCarWheelsSoundPreload" : true,
+                    "useDriftSoundPreload" : true,
+                    "preLoadAllParticles" : false,
+                    "uiTexturesCustomMip" : 1,
+                    "uiTexturesCustomParam" : 1,
+                    "carDecals_highQualitySizeMultiplerMem" : 1.0,
+                    "isLowMemoryDeviceLevel" : 1,
+                    "preLoadAllParticlesMenu" : false,
+                    "reloadTextureOnResume" : true
+                }
+            },
+            "priority" : [
+                
+            ]
+        },
+        "Specific" : {
+            "defaults" : [
+                {
+                    "Default" : [
+                        [
+                            "dpiPhoneLOW",
+                            230,
+                            "dpi Phone is low profile",
+                            "[1;1000]"
+                        ],
+                        [
+                            "dpiPhoneMED",
+                            264,
+                            "dpi of Phone with medium or high profile",
+                            "[1;1000]"
+                        ],
+                        [
+                            "dpiPhoneVERYHIGH",
+                            290,
+                            "dpi of Phone with very high profile",
+                            "[1;1000]"
+                        ],
+                        [
+                            "dpiPhoneTOP",
+                            326,
+                            "dpi of Phone with top profile",
+                            "[1;1000]"
+                        ],
+                        [
+                            "dpiTabletLOW",
+                            132,
+                            "dpi of Tablet with low profile",
+                            "[1;1000]"
+                        ],
+                        [
+                            "dpiTabletMED",
+                            170,
+                            "dpi of Tablet with medium and high profile",
+                            "[1;1000]"
+                        ],
+                        [
+                            "dpiTabletVERYHIGH",
+                            200,
+                            "dpi of Tablet with very high profile",
+                            "[1;1000]"
+                        ],
+                        [
+                            "dpiTabletTOP",
+                            264,
+                            "dpi of Tablet with top profile",
+                            "[1;1000]"
+                        ],
+                        [
+                            "uiRTT_ClearPerFrame",
+                            true,
+                            "call glClear on ui rtt each frame",
+                            "[;]"
+                        ],
+                        [
+                            "forcedDisableMapBuffer",
+                            false,
+                            "forcedDisableMapBuffer",
+                            "[;]"
+                        ],
+                        [
+                            "forceUseETCCompressionOnUI",
+                            false,
+                            "forceUseETCCompressionOnUI",
+                            "[;]"
+                        ]
+                    ]
+                }
+            ],
+            "selection" : [
+                {
+                    "SURFACE_SCALE_2560_ADRENO" : [
+                        [
+                            [
+                                "W>=2560"
+                            ]
+                        ]
+                    ]
+                },
+                {
+                    "SURFACE_SCALE_1920_ADRENO" : [
+                        [
+                            [
+                                "W>=1920"
+                            ],
+                            [
+                                "W<2560"
+                            ]
+                        ]
+                    ]
+                }
+            ],
+            "overrides" : {
+                "SURFACE_SCALE_1920_ADRENO" : {
+                    "uiRTT_ClearPerFrame" : false,
+                    "forceUseETCCompressionOnUI" : true
+                },
+                "SURFACE_SCALE_2560_ADRENO" : {
+                    "uiRTT_ClearPerFrame" : false
+                }
+            },
+            "priority" : [
+                
+            ]
+        }
+    }
+}
